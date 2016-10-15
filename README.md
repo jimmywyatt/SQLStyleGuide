@@ -113,3 +113,42 @@ Select
 	From
 		dbo.Company c
 ```
+
+* Do - Inline JOIN conditions unless over 3 conditions
+* Do Not - Split onto new lines everytime
+* Why - Join condidtions rarely change
+
+```SQL
+Select
+		c.CompanyNo
+	From
+		dbo.Company c
+		Join dbo.Country cty On c.CountryNo = cty.CountryNo And cty.IsActive = 1
+```
+
+* Do - Use JOIN and LEFT JOIN
+* Do Not - Use INNER JOIN or LEFT OUTER JOIN
+* Why - Shorter form of the same statement
+
+```SQL
+Select
+		c.CompanyNo
+	From
+		dbo.Company c
+		Join dbo.Country cty1 On c.CountryNo = cty1.CountryNo
+		Left Join dbo.Country cty2 On c.CountryNo = cty2.CountryNo
+		Inner Join dbo.Country cty3 On c.CountryNo = cty3.CountryNo --< Do NOT
+		Left Outer Join dbo.Country cty4 On c.CountryNo = cty4.CountryNo --< Do NOT
+```
+
+* Do - Inline very simple 1 select/one where
+* Do Not - Inline anythign more complicated
+* Why - Keep the line between tidy and readable
+
+```SQL
+Select
+		c.CompanyNo
+		, (Select Count(*) From dbo.Company Where CountryNo = c.CountryNo) As CompanyCountryCount
+	From
+		dbo.Company c
+```
