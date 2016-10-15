@@ -4,6 +4,16 @@ Everyone has their own way of formatting SQL, this guide tries to bring some sim
 
 ---
 
+* Do - Name object with their types at the end, except tables
+* Do Not - Mix and match
+* Why - It improves allows you to see what type of object is being used at a glance
+
+```SQL
+Company --< Table
+CompanyView --< View
+InsertCompanyProcedure --< Procedure
+GetCompanyFunction --< Function
+```
 
 * Do - Start each statement on a new line and tab the lines underneath
 * Do Not - Bunch code together on one line
