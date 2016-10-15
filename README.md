@@ -77,7 +77,7 @@ Select
 		)
 ```
 
-* Do - Use Alias's for objects
+* Do - Use Alias's for objects (they should normally be the first letter of the object it Company becomes c (lowercase))
 * Do Not - Use the full object name, unless very short
 * Why - If everything has an alias the engine does not have to look for the objects the colums are part of
 
@@ -151,4 +151,48 @@ Select
 		, (Select Count(*) From dbo.Company Where CountryNo = c.CountryNo) As CompanyCountryCount
 	From
 		dbo.Company c
+```
+
+* Do - Use SELECT to set property values
+* Do Not - Use SET
+* Why - Select can be used both for getting values from a table and setting values, keep just one
+
+```SQL
+Select
+		@CompanyNo = 1
+		, @EmailAddress = c.EmailAddress
+		, @DateIncorporated = '2015-06-01'
+	From
+		dbo.Company c
+	Where
+		c.IsActive = 1
+```
+
+* Do - Use @RowCount to combine and UPDATE / INSERT
+* Why - Simplify update / insert procedures
+
+```SQL
+Begin Tran
+	Update
+			c
+		Set
+			c.EmailAddress = @EmailAddress
+		From
+			dbo.Company c
+		Where
+			c.CompanyNo = @CompanyNo
+
+	If @@RowCount = 0
+	Begin
+		Insert Into
+			dbo.Company
+			(
+				EmailAddress
+			)
+			Values
+			(
+				@EmailAddress
+			)
+	End
+Commit Tran
 ```
