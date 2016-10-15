@@ -1,5 +1,10 @@
 # SQL Style Guide
 
+Everyone has their own way of formatting SQL, this guide tries to bring some simple rules to it.
+
+---
+
+
 * Do - Start each statement on a new line and tab the lines underneath
 * Do Not - Bunch code together on one line
 * Why - It improves readablity, and breaks the code into obvious sections
