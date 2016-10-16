@@ -194,7 +194,7 @@ Select
 		dbo.Company c
 ```
 
-### Setting Values
+### Setting Parameter Values
 
 * Do - Use SELECT to set property values
 * Do Not - Use SET
