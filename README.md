@@ -28,11 +28,22 @@ GetCompanyFunction --< Function
 			dbo.CompanyEmployee
 ```
 
+* Do - Use fullnames for objects i.e. CompanyEmployee
+* Do Not - Shorten to CompanyEmp
+* Why - Whist it may make sense for the original developer, it may not for subsequent developers
+
+```SQL
+	Select
+			*
+		From
+			dbo.CompanyEmployee
+```
+
 ### Tabbing
 
 * Do - Start each statement on a new line and tab the lines underneath
 * Do Not - Bunch code together on one line
-* Why - It improves readablity, and breaks the code into obvious sections
+* Why - It improves readability, and breaks the code into obvious sections
 
 ```SQL
 Declare
@@ -76,7 +87,7 @@ Select
 
 * Do - Indent SELECT, FROM, WHERE clauses
 * Do Not - Place the where clause inline
-* Why - It improves readablity, and make commenting out easier
+* Why - It improves readability, and make commenting out easier
 
 ```SQL
 Select
@@ -111,7 +122,7 @@ Select
 
 * Do - Use Alias's for objects (they should normally be the first letter of the object it Company becomes c (lowercase))
 * Do Not - Use the full object name, unless very short
-* Why - If everything has an alias the engine does not have to look for the objects the colums are part of
+* Why - If everything has an alias the engine does not have to look for the objects the columns are part of
 
 ```SQL
 Select
@@ -122,7 +133,7 @@ Select
 
 * Do - Specify the schema the object is part of
 * Do Not - Leave the schema blank
-* Why - If everything has an schema the engine does not have to work it out
+* Why - If everything has a schema the engine does not have to work out what the current one is
 
 ```SQL
 Select
@@ -151,7 +162,7 @@ Select
 
 * Do - Split CASE statements onto new lines
 * Do Not - Set the case statement inline
-* Why - It improves readablity, and make commenting out easier
+* Why - It improves readability, and make commenting out easier
 
 ```SQL
 Select
@@ -167,8 +178,8 @@ Select
 ### Joins
 
 * Do - Inline JOIN conditions unless over 3 conditions
-* Do Not - Split onto new lines everytime
-* Why - Join condidtions rarely change
+* Do Not - Split onto new lines ever ytime
+* Why - Join conditions rarely change
 
 ```SQL
 Select
@@ -194,13 +205,27 @@ Select
 ```
 
 * Do - Inline very simple 1 select/one where
-* Do Not - Inline anythign more complicated
+* Do Not - Inline anything more complicated
 * Why - Keep the line between tidy and readable
 
 ```SQL
 Select
 		c.CompanyNo
 		, (Select Count(*) From dbo.Company Where CountryNo = c.CountryNo) As CompanyCountryCount
+	From
+		dbo.Company c
+
+Select
+		c.CompanyNo
+		, (
+			Select
+					Count(*)
+				From
+					dbo.Company
+				Where
+					CountryNo = c.CountryNo
+					And c.IsActive = 1
+		) As CompanyCountryCount
 	From
 		dbo.Company c
 ```
