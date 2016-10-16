@@ -281,7 +281,7 @@ Commit Tran
 ### Commenting
 
 * Do - Leave a comment at the bottom of the Stored Procedure with example execution values
-* Why - When testing or updating an sp having example example values can make it alot easier
+* Why - When testing or updating an sp having example values can make it alot easier
 
 ```SQL
 Select
