@@ -7,7 +7,7 @@ Everyone has their own way of formatting SQL, this guide tries to bring some sim
 ### Naming
 
 * Do - Name object with their types at the end, except tables
-* Do Not - Mix and match
+* Do Not - Mix and match, once you have a style stick to it
 * Why - It improves allows you to see what type of object is being used at a glance
 
 ```SQL
@@ -15,6 +15,17 @@ Company --< Table
 CompanyView --< View
 InsertCompanyProcedure --< Procedure
 GetCompanyFunction --< Function
+```
+
+* Do - Use singular names for tables
+* Do Not - Use plural names
+* Why - Singular names tend to be shorter and a bag is called a bag no matter how many items it holds
+
+```SQL
+	Select
+			*
+		From
+			dbo.CompanyEmployee
 ```
 
 ### Tabbing
@@ -33,7 +44,7 @@ Declare
 	, @IsActive Bit = 1
 
 Insert Into
-	[dbo].[Company]
+	dbo.Company
 	(
 		CompanyNo
 		, Name
