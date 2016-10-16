@@ -4,6 +4,8 @@ Everyone has their own way of formatting SQL, this guide tries to bring some sim
 
 ---
 
+### Naming
+
 * Do - Name object with their types at the end, except tables
 * Do Not - Mix and match
 * Why - It improves allows you to see what type of object is being used at a glance
@@ -14,6 +16,8 @@ CompanyView --< View
 InsertCompanyProcedure --< Procedure
 GetCompanyFunction --< Function
 ```
+
+### Tabbing
 
 * Do - Start each statement on a new line and tab the lines underneath
 * Do Not - Bunch code together on one line
@@ -92,6 +96,8 @@ Select
 		)
 ```
 
+### Aliases
+
 * Do - Use Alias's for objects (they should normally be the first letter of the object it Company becomes c (lowercase))
 * Do Not - Use the full object name, unless very short
 * Why - If everything has an alias the engine does not have to look for the objects the colums are part of
@@ -114,6 +120,24 @@ Select
 		dbo.Company c
 ```
 
+* Do - Place column alisas next to the column definition
+* Do Not - Tab them inline further across the screen
+* Why - It can be hard to tell which column aliases line up with which columns definitions, and as most don't need an alias it leaves gaps
+
+```SQL
+Select
+        c.CompanyNo As Id
+        , c.Name
+        , c.CountryNo
+        , c.EmailAddress As Email
+        , c.DateIncorporated
+        , c.IsActive
+    From
+        dbo.Company c
+```
+
+### Case Statements
+
 * Do - Split CASE statements onto new lines
 * Do Not - Set the case statement inline
 * Why - It improves readablity, and make commenting out easier
@@ -128,6 +152,8 @@ Select
 	From
 		dbo.Company c
 ```
+
+### Joins
 
 * Do - Inline JOIN conditions unless over 3 conditions
 * Do Not - Split onto new lines everytime
@@ -168,6 +194,8 @@ Select
 		dbo.Company c
 ```
 
+### Setting Values
+
 * Do - Use SELECT to set property values
 * Do Not - Use SET
 * Why - Select can be used both for getting values from a table and setting values, keep just one
@@ -182,6 +210,8 @@ Select
 	Where
 		c.IsActive = 1
 ```
+
+### Insert/Update
 
 * Do - Use @RowCount to combine and UPDATE / INSERT
 * Why - Simplify update / insert procedures
