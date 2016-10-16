@@ -158,6 +158,17 @@ Select
         dbo.Company c
 ```
 
+* Do - Use AS for alising columns
+* Do Not - Use definition space alias
+* Why - Using AS makes it clear that what comes next is the alias
+
+```SQL
+Select
+        c.EmailAddress As Email
+    From
+        dbo.Company c
+```
+
 ### Case Statements
 
 * Do - Split CASE statements onto new lines
