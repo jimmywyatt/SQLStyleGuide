@@ -241,3 +241,19 @@ Begin Tran
 	End
 Commit Tran
 ```
+
+### Commenting
+
+* Do - Leave a comment at the bottom of the Stored Procedure with example execution values
+* Why - When testing or updating an sp having example example values can make it alot easier
+
+```SQL
+Select
+		@CompanyNo = 1
+		, @EmailAddress = c.EmailAddress
+		, @DateIncorporated = '2015-06-01'
+	From
+		dbo.Company c
+	Where
+		c.IsActive = 1
+```
