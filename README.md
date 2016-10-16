@@ -118,6 +118,24 @@ Select
 		)
 ```
 
+### Selects
+
+* Do - Specify each column name you want to select
+* Do Not - Use * (unless selecting from a temp table you create in the same SP)
+* Why - Changes to the underling objects can alter the results of your statement
+
+```SQL
+Select
+        c.CompanyNo
+        , c.Name
+        , c.CountryNo
+        , c.EmailAddress
+        , c.DateIncorporated
+        , c.IsActive
+    From
+        dbo.Company c
+```
+
 ### Aliases
 
 * Do - Use Alias's for objects (they should normally be the first letter of the object it Company becomes c (lowercase))
