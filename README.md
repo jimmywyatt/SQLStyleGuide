@@ -295,12 +295,14 @@ Commit Tran
 * Why - When testing or updating an sp having example values can make it alot easier
 
 ```SQL
-Select
-		@CompanyNo = 1
-		, @EmailAddress = c.EmailAddress
-		, @DateIncorporated = '2015-06-01'
-	From
-		dbo.Company c
-	Where
-		c.IsActive = 1
+Create Proc [dbo].[GetValueProcedure]
+	@Value1 nVarChar(100)
+As
+Begin
+	Select
+			@Value1
+End
+/*
+GetValueProcedure 'Hello World'
+*/
 ```
