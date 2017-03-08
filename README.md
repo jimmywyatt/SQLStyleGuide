@@ -39,7 +39,7 @@ GetCompanyFunction --< Function
 			dbo.CompanyEmployee
 ```
 
-### Tabbing
+### Dabbing
 
 * Do - Start each statement on a new line and tab the lines underneath
 * Do Not - Bunch code together on one line
