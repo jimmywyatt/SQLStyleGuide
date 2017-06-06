@@ -330,9 +330,9 @@ GetValueProcedure 'Hello World'
 * Do - Use the following pattern to keep a consistent naming convention for foreign keys
 * Why - This will allow developers to see at a glance how foreign keys related to the current table
 
-*FK
-**Denotes the use of a foreign key
-*UserNo
-**The key column you are linking to
-*ApprovedBy
-**The function the column is storing (this can be ignored if the table will only ever hold one foreign key to the target table and its function is impied by the name)
+* FK
+** Denotes the use of a foreign key
+* UserNo
+** The key column you are linking to
+* ApprovedBy
+** The function the column is storing (this can be ignored if the table will only ever hold one foreign key to the target table and its function is impied by the name)
