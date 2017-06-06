@@ -331,8 +331,16 @@ GetValueProcedure 'Hello World'
 * Why - This will allow developers to see at a glance how foreign keys related to the current table
 
 * FK
-** Denotes the use of a foreign key
+	* Denotes the use of a foreign key
 * UserNo
-** The key column you are linking to
+	* The key column you are linking to
 * ApprovedBy
-** The function the column is storing (this can be ignored if the table will only ever hold one foreign key to the target table and its function is impied by the name)
+	* The function the column is storing (this can be ignored if the table will only ever hold one foreign key to the target table and its function is impied by the name)
+
+The column should look like the following
+* FK_UserNo_ApprovedBy
+
+It should **not** be
+* FK_ApprovedBy
+* FK_ApprovedBy_UserNo
+* ApprovedByNo
