@@ -330,6 +330,7 @@ GetValueProcedure 'Hello World'
 * Do - Use the following pattern to keep a consistent naming convention for foreign keys
 * Why - This will allow developers to see at a glance how foreign keys related to the current table
 
+
 * FK
 	* Denotes the use of a foreign key
 * UserNo
